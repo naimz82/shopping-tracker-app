@@ -130,7 +130,7 @@ To start developing:
 ### Metro Bundler Issues
 If you encounter issues with the Metro bundler, try:
 ```bash
-npm start -- --clear
+npm start --clear
 ```
 
 ### Dependency Issues
