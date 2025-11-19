@@ -152,9 +152,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-Project Link: [https://github.com/naimz82/shopping-tracker-app](https://github.com/naimz82/shopping-tracker-app)
-My Email: [naim@amz.com.my] (mailto:naim@amz.com.my)
-WhatsApp: [+6011-20884110] (https://www.wasap.my/601120884110/shopping+tracker)
+Project Link: [https://github.com/naimz82/shopping-tracker-app](https://github.com/naimz82/shopping-tracker-app)  
+My Email: [mailto:naim@amz.com.my] (naim@amz.com.my)  
+WhatsApp: [https://www.wasap.my/601120884110/shopping+tracker] (+6011-20884110)  
 
 ---
 
