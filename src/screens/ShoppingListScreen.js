@@ -13,7 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { getItems, addItem } from "../storage/storage";
 
-export default function ShoppingListScreen() {
+export default function ShoppingListScreen({ navigation }) {
   const [items, setItems] = useState([]);
   const [entries, setEntries] = useState([]);
   const [customName, setCustomName] = useState("");
@@ -140,6 +140,14 @@ export default function ShoppingListScreen() {
             )}
           />
         )}
+        
+        <TouchableOpacity 
+          style={styles.manageDBButton}
+          onPress={() => navigation.navigate("ItemsDB")}
+        >
+          <MaterialIcons name="inventory" size={20} color="#2196F3" />
+          <Text style={styles.manageDBText}>Manage Items Database</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.section}>
@@ -321,6 +329,24 @@ const styles = StyleSheet.create({
   emptyDBText: {
     color: "#999",
     fontSize: 14,
+  },
+  manageDBButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    marginHorizontal: 16,
+    marginTop: 12,
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#2196F3",
+  },
+  manageDBText: {
+    color: "#2196F3",
+    fontWeight: "600",
+    fontSize: 14,
+    marginLeft: 6,
   },
   itemCard: {
     backgroundColor: "#fff",

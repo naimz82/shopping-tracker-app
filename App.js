@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        initialRouteName="ItemsDB"
+        initialRouteName="ShoppingList"
         screenOptions={{
           headerStyle: {
             backgroundColor: "#2196F3",
@@ -34,13 +34,22 @@ export default function App() {
       >
 
         <Stack.Screen 
+          name="ShoppingList" 
+          component={ShoppingListScreen} 
+          options={{ 
+            title: "Shopping List",
+            headerLeft: () => (
+              <MaterialIcons name="shopping-cart" size={24} color="#fff" style={{ marginRight: 10 }} />
+            ),
+          }}
+        />
+
+        <Stack.Screen 
           name="ItemsDB" 
           component={ItemsDBScreen} 
           options={{ 
             title: "Items Database",
-            headerLeft: () => (
-              <MaterialIcons name="inventory-2" size={24} color="#fff" style={{ marginRight: 10 }} />
-            ),
+            headerLeft: () => null,
           }}
         />
 
@@ -49,15 +58,6 @@ export default function App() {
           component={AddItemScreen} 
           options={{ 
             title: "Add New Item",
-            headerLeft: () => null,
-          }}
-        />
-
-        <Stack.Screen 
-          name="ShoppingList" 
-          component={ShoppingListScreen} 
-          options={{ 
-            title: "Shopping List",
             headerLeft: () => null,
           }}
         />

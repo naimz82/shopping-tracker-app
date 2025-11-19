@@ -90,14 +90,6 @@ export default function ItemsDBScreen({ navigation }) {
         <MaterialIcons name="add" size={24} color="#fff" />
         <Text style={styles.addText}>Add New Item</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.listButton}
-        onPress={() => navigation.navigate("ShoppingList")}
-      >
-        <MaterialIcons name="shopping-cart" size={24} color="#fff" />
-        <Text style={styles.listText}>Go to Shopping List</Text>
-      </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -195,26 +187,6 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   addText: { 
-    color: "#fff", 
-    fontWeight: "bold",
-    fontSize: 16,
-    marginLeft: 8,
-  },
-  listButton: {
-    flexDirection: "row",
-    backgroundColor: "#4CAF50",
-    padding: 16,
-    borderRadius: 12,
-    marginTop: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
-  },
-  listText: { 
     color: "#fff", 
     fontWeight: "bold",
     fontSize: 16,
