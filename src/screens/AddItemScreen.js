@@ -32,15 +32,22 @@ export default function AddItemScreen({ navigation }) {
   };
 
   const handleSave = async () => {
+    // Reset errors
+    setErrors({});
+
     if (!validate()) {
       Alert.alert("Validation Error", "Please fill in all fields correctly");
       return;
     }
 
+    // Security: Sanitize inputs to prevent injection
+    const sanitizedName = name.trim().replace(/[<>]/g, '');
+    const sanitizedUnit = unit.trim().replace(/[<>]/g, '');
+
     const newItem = {
       id: Date.now().toString(),
-      name: name.trim(),
-      unit: unit.trim(),
+      name: sanitizedName,
+      unit: sanitizedUnit,
       pricePerUnit: parseFloat(price),
       createdAt: new Date().toISOString(),
     };

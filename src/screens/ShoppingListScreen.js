@@ -24,6 +24,11 @@ export default function ShoppingListScreen({ navigation }) {
     loadItems();
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = navigation.addListener("focus", loadItems);
+    return unsubscribe;
+  }, [navigation]);
+
   const loadItems = async () => {
     const data = await getItems();
     setItems(data);
@@ -43,15 +48,30 @@ export default function ShoppingListScreen({ navigation }) {
   };
 
   const addCustomItem = async () => {
-    if (!customName || !customUnit || !customPrice) return;
+    // Validation
+    if (!customName.trim()) {
+        Alert.alert("Error", "Please enter item name");
+        return;
+    }
+    if (!customUnit.trim()) {
+        Alert.alert("Error", "Please enter unit");
+        return;
+    }
+    if (!customPrice || isNaN(parseFloat(customPrice)) || parseFloat(customPrice) <= 0) {
+        Alert.alert("Error", "Please enter a valid price");
+        return;
+    }
 
+    // Security: Sanitize inputs
+    const sanitizedName = customName.trim().replace(/[<>]/g, '');
+    const sanitizedUnit = customUnit.trim().replace(/[<>]/g, '');
     const price = parseFloat(customPrice);
 
     // Create new item for database
     const newItem = {
       id: Date.now().toString(),
-      name: customName.trim(),
-      unit: customUnit.trim(),
+      name: sanitizedName,
+      unit: sanitizedUnit,
       pricePerUnit: price,
       createdAt: new Date().toISOString(),
     };
